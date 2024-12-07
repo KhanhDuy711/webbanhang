@@ -1,0 +1,7 @@
+a{
+    text-decoration: none;
+}
+.button-edit,.button-delete,.button-Add{
+    color:black;
+    font-weight: bold;
+}
