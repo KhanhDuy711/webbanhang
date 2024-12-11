@@ -62,7 +62,21 @@ $result = $stmt->get_result();
         echo '<table border="1">';
         echo '<tr><th>Product name</th><th>Order date</th><th>Sell price</th><th>Quantity</th><th>Action</th></tr>';
 
-    
+        while ($row = $result->fetch_assoc()) {
+            echo '<tr>';
+            echo '<td>' . $row['pname'] . '</td>';
+            echo '<td>' . $row['rdate'] . '</td>';
+            echo '<td>' . $row['psellprice'] . '</td>';
+            echo '<td>' . $row['quantity'] . '</td>';
+            // Check order status (case-insensitive) and display the appropriate action
+           if (strcasecmp($row['rstatus'], 'Hoàn thành') === 0) {
+                echo '<td><a href="comment.php?rid=' . $row['rid'] . '&pid=' . $row['pid'] . '">Feedback</a></td>';
+            } else {
+                echo '<td>Cannot feedback</td>';
+            }
+
+            echo '</tr>';
+        }
 
         echo '</table>';
     } else {
