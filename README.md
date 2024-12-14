@@ -27,14 +27,16 @@ Người dùng có thể duyệt qua các danh mục sản phẩm, tìm kiếm q
 
 ## Công nghệ sử dụng
 - Sử dụng các ngôn ngữ lập trình như : PHP, Js, HTML, CSS, SQL,...
-- Tham khảo các dự án trên GitHub, Youtobe, ChatGpt.
+- Tham khảo các dự án trên GitHub, Youtube, ChatGpt.
 
 - **DataBase:**
 ![image](https://github.com/user-attachments/assets/9f5d5007-edd2-42db-af71-c85c67e91923)
 
 ## Cài đặt và chạy thử
 1. Trải nghiệm web ở đây:
-   - Tài khoản : admin
+   - Tài khoản : admin[Uploading quanlyquanao_php.sql…]()
+
    - Mật khẩu : admin123
 2. Video Demo :<https://drive.google.com/file/d/136hDDMMvQ-YFbwP6JQWOqwIYKUALY6aX/view?usp=sharing>
+3. Link Git: <https://github.com/KhanhDuy711/webbanhang>
    
