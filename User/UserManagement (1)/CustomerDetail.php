@@ -219,22 +219,7 @@ session_start();
                                     </tr>';
 
                     echo '</thead>';
-                    while ($row = $result33->fetch_assoc()) {
-                        echo '<tr>';
-                        echo '<td><a href="#orderDetailsContainer" class="orderDetailsLink" data-rid="' . $row['rid'] . '">' . $row['rid'] . '</a></td>';
-                        echo '<td>' . $row['rdate'] . '</td>';
-                        echo '<td>' . $row['rmoney'] . '</td>';
-                        echo '<td>' . $row['rstatus'] . '</td>';
-
-                        // Check order status (case-insensitive) and display the appropriate action
-                        if (strcasecmp($row['rstatus'], 'Đang xử lý') === 0) {
-                            echo '<td><a href="cancel_order.php?rid=' . $row['rid'] . '">Cancel order</a></td>';
-                        } else {
-                            echo '<td>Cannot cancel</td>';
-                        }
-
-                        echo '</tr>';
-                    }
+                    
 
                     echo '</table>';
                 } else {
