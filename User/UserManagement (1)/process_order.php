@@ -73,10 +73,7 @@ $_SESSION['latest_receipt_id'] = $latestReceiptId; // Assuming you have the rece
     }
 
     // Update voucher status if used
-    if (!empty($vid)) {
-        $updateVoucherQuery = "UPDATE voucher SET vremaining = vremaining -1 WHERE vid = '$vid'";
-        $conn->query($updateVoucherQuery);
-    }
+    
     
     //Lấy rid 
     $sql="SELECT rid FROM `receipt` order by rid desc limit 1";// lấy rid lớn nhất
