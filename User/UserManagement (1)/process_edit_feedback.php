@@ -13,7 +13,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $media = '';
 
     // Check if a new media file is uploaded
-    
+    if (!empty($_FILES["fmedia"]["name"])) {
+        // File upload handling
+        $targetDir = "uploads/";
+        $targetFile = $targetDir . uniqid() . '_' . basename($_FILES["fmedia"]["name"]);
+
+        // Check file type (you can adjust the allowed file types)
+        $allowedFileTypes = ['jpg', 'jpeg', 'png', 'gif', 'mp4'];
+        $fileExtension = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+        if (!in_array($fileExtension, $allowedFileTypes)) {
+            echo "Sorry, only JPG, JPEG, PNG, GIF, MP4 files are allowed.";
+            exit();
+        }
+
+        // Check file size
+        $maxFileSize = 5 * 1024 * 1024; // 5 MB
+        if ($_FILES["fmedia"]["size"] > $maxFileSize) {
+            echo "Sorry, your file is too large. Maximum file size is 5 MB.";
+            exit();
+        }
+
+        // Move the uploaded file to the "uploads" directory
+        if (is_uploaded_file($_FILES["fmedia"]["tmp_name"]) && move_uploaded_file($_FILES["fmedia"]["tmp_name"], $targetFile)) {
+            // Success: File was successfully uploaded
+            $media = $targetFile;
+        } else {
+            // Error: File upload failed
+            echo "Sorry, there was an error uploading your file.";
+            exit();
+        }
+    } else {
+        // No new file uploaded, use the existing media path
+        $media = $existingMedia;
+    }
 
     // Update feedback content, star rating, and media in the database
     $updateQuery = "UPDATE feedback SET fcontent = ?, fstar = ?, fmedia = ? WHERE fid = ?";
