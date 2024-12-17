@@ -130,7 +130,8 @@
     <font color=red><?php echo $_SESSION["product_add_error"]; ?></font><br>
 
     <div class="col-12">
-      
+      <button class="btn btn-primary" type="reset">Reset</button>
+      <button class="btn btn-primary" type="submit">Thêm sản phẩm</button>
     </div>
   </form>
 
